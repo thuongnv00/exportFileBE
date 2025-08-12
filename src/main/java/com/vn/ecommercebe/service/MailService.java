@@ -32,7 +32,10 @@ public class MailService {
         email.setTo(toMailAdr);
         email.setFrom("ngovanthuong12369@gmail.com");
 //        MimeBodyPart bodyPart = new MimeBodyPart();
-        File file = new File("C:\\Users\\ngova\\Downloads\\output.docx");
+//        File file = new File("C:\\Users\\ngova\\Downloads\\output.docx");
+
+        String tempDir = System.getProperty("java.io.tmpdir");
+        File file = new File(tempDir, "output.docx");
         email.addAttachment(file.getName(),file);
         mailSender.send(mimeMessage);
     }
