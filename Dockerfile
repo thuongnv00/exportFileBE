@@ -1,9 +1,11 @@
 FROM openjdk:8-jdk
-
 WORKDIR /app
 
+# Copy toàn bộ code vào container
+COPY . .
+
+# Build
 RUN ./mvnw clean package -DskipTests
 
-COPY target/EcommerceBE-0.0.1-SNAPSHOT.war app.jar
-
-CMD ["java", "-jar", "target/*.jar"]
+# Chạy ứng dụng
+CMD ["java", "-jar", "target/EcommerceBE-0.0.1-SNAPSHOT.war"]
